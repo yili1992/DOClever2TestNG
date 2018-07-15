@@ -1,0 +1,18 @@
+package ${packagePath};
+
+import com.lee.test.common.ConfigModel;
+import org.apache.http.client.methods.HttpPost;
+import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+@{staticMethod}
+
+/**
+ * Created by ${author} on ${date}.
+ * 代码自动生成 通过http://127.0.0.1:5000/api2testng/#/
+ */
+public class ${className} {
+    public static String url = ${base_url};
+
+    @{ApiMethods}
+}

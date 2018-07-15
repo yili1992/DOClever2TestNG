@@ -1,0 +1,10 @@
+    //Created by ${author} on ${date}
+    public static String ${methodName}(${allArgs}) throws Exception{
+        String methodUrl = url+"${method_url}";
+        HttpPost httpPost = new HttpPost(methodUrl);
+        JSONObject jsonParams = new JSONObject();
+        @{methodBody}
+        HttpHelper.setCommonHeaders(httpPost,true,jsonParams);
+        String result = HttpHelper.sendPostRequest(httpPost, jsonParams);
+        return result;
+    }
