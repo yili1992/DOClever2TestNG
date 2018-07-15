@@ -4,11 +4,12 @@
 
 # 安装说明
 使用python3
-`python
+`
 pip install -r requirements.txt
 `
+
 启动应用
-`python
+`
 python application
 `
 进入http://127.0.0.1:5000/api2testng/#/
