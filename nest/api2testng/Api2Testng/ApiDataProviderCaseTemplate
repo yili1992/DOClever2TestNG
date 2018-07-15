@@ -1,0 +1,18 @@
+
+    @DataProvider(name="${arg}")
+    public static Object[][] ${arg}()
+    {
+        return new Object[][] {{"","10002"},{"999999","10002"},{"0","10002"},{${arg},"00000"}};
+        // 空值,非法值,0,正常值 (需要自行执行来获得 expectCode)
+    }
+    @Test(description = "${description} 检验 ${arg}", dataProvider = "${arg}", priority = 0, groups = {${group}})
+    public void ${methodName}_${arg}(String ${arg}, String expectCode) throws Exception{
+        String result1 = ${className}.${methodName}(${args});
+        JSONArray res1 = JSON.parseArray(result1);
+        if(AssertX.assert_equal("200",res1.getJSONObject(0).getString("status"))!=true)
+        {
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName()+":    "+result1);
+        }
+        AssertX.assertEquals(${assertExpectCodeContent});
+    }
+

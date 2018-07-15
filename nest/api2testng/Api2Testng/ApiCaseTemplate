@@ -1,0 +1,40 @@
+package ${casePath};
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.lee.test.common.TestBase;
+import com.lee.test.tool.AssertX;
+import com.lee.test.tool.SystemLogger;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * Created by ${author} on ${date}.
+ * 代码自动生成 通过http://127.0.0.1:5000/api2testng/#/
+ */
+public class ${caseName} extends TestBase {
+    SystemLogger log = SystemLogger.getLogger(${caseName}.class);
+    @{args_declare}
+
+    @BeforeClass(alwaysRun = true)
+    public void setUp(){
+    @{args_defined}
+    }
+
+    @Test(description = "${description}",  priority = 0, groups = {${group}})
+    public void ${methodName}() throws Exception{
+        String result1 = ${className}.${methodName}(${args});
+        JSONArray res1 = JSON.parseArray(result1);
+        if(AssertX.assert_equal("200",res1.getJSONObject(0).getString("status"))!=true)
+        {
+            log.info(Thread.currentThread().getStackTrace()[1].getMethodName()+":    "+result1);
+        }
+        AssertX.assertEquals(${assertContent});
+    }
+
+    @{dataProviderCase}
+
+}
